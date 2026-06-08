@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tool Brand SNS Status Tracker</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="공구 브랜드 7대사의 YouTube 및 Instagram SNS 현황을 모니터링하고 시각화하는 모던 웹 대시보드">
+  
+  <!-- Google Fonts - Inter -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons (CDN) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  
+  <!-- Chart.js (CDN) -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  
+  <div class="app-container">
+    
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <i data-lucide="wrench" style="color: var(--color-primary); width: 24px; height: 24px; flex-shrink: 0;"></i>
+        <span style="margin-left: 10px;">Tool Brand SNS</span>
+      </div>
+      
+      <ul class="sidebar-menu">
+        <li class="menu-item active" id="menu-dashboard" data-target="view-dashboard">
+          <i data-lucide="layout-dashboard"></i>
+          <span>대시보드</span>
+        </li>
+        <li class="menu-item" id="menu-comparison" data-target="view-comparison">
+          <i data-lucide="bar-chart-3"></i>
+          <span>브랜드 비교 시각화</span>
+        </li>
+        <li class="menu-item" id="menu-settings" data-target="view-settings">
+          <i data-lucide="settings"></i>
+          <span>API 설정</span>
+        </li>
+      </ul>
+      
+      <div class="sidebar-footer">
+        <p>© 2026 SNS Tracker</p>
+        <p style="font-size: 0.7rem; margin-top: 4px;">Designed by Antigravity</p>
+      </div>
+    </aside>
+    
+    <!-- Mobile Sidebar Overlay -->
+    <div class="sidebar-overlay" id="sidebar-overlay"></div>
+    
+    <!-- Main Content Area -->
+    <main class="main-content">
+      
+      <!-- Top Sticky Header -->
+      <header class="main-header">
+        <div class="header-title-area">
+          <button class="sidebar-toggle-btn" id="sidebar-toggle" title="사이드바 토글">
+            <i data-lucide="menu"></i>
+          </button>
+          <h1>Tool Brand SNS Status Tracker</h1>
+          <span id="api-mode-badge" class="badge">LOCKED</span>
+        </div>
+        
+        <div class="header-actions">
+          <span class="last-updated" id="last-updated-text">데이터 로딩 중...</span>
+          <button class="btn-refresh" id="refresh-btn" title="데이터 새로고침">
+            <i data-lucide="refresh-cw" id="refresh-icon"></i>
+            <span>새로고침</span>
+          </button>
+        </div>
+      </header>
+      
+      <!-- Content Body -->
+      <div class="content-body">
+        
+        <!-- View 1: Dashboard -->
+        <div class="dashboard-view active" id="view-dashboard">
+          
+          <!-- Cards Grid -->
+          <section class="grid-cards" id="brand-grid">
+            <!-- Dynamically populated by JS -->
+          </section>
+          
+          <!-- Brand Details Expandable Section -->
+          <section class="card detail-section" id="brand-detail-section" style="display: block; opacity: 1;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 16px;">
+              <h2 class="section-title" id="detail-section-title" style="margin-bottom: 0; display: flex; align-items: center; gap: 8px;">
+                <span id="detail-brand-logo-container"></span>
+                <span id="detail-title-text">전체 브랜드 YouTube 최근 콘텐츠 (지난 7일)</span>
+              </h2>
+              
+              <div style="display: flex; align-items: center; gap: 12px; flex-wrap: wrap;">
+                <!-- Brand Selector Dropdown -->
+                <select id="detail-brand-select" class="form-input" style="padding: 6px 12px; font-size: 0.85rem; border-radius: 6px; display: none; background-color: rgba(255,255,255,0.03); color: var(--text-primary); border: 1px solid var(--border-color);">
+                  <!-- Populated dynamically -->
+                </select>
+
+                <!-- Tab Switching -->
+                <div class="tabs-container" style="margin-bottom: 0;">
+                  <button class="tab-btn active" id="tab-view-all" data-tab="all">
+                    <i data-lucide="globe" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 4px;"></i> 전체보기
+                  </button>
+                  <button class="tab-btn" id="tab-view-brand" data-tab="brand">
+                    <i data-lucide="user" style="width: 14px; height: 14px; display: inline-block; vertical-align: middle; margin-right: 4px;"></i> 브랜드별 보기
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Details Contents List -->
+            <div class="media-list" id="detail-list">
+              <!-- Dynamically populated by JS -->
+            </div>
+          </section>
+          
+        </div>
+        
+        <!-- View 2: Brand Comparison Charts -->
+        <div class="dashboard-view" id="view-comparison">
+          <div class="grid-charts">
+            
+            <div class="card" style="height: 380px;">
+              <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                <span style="width: 16px; height: 16px; color: var(--color-youtube); display: inline-block;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 100%; height: 100%; display: block;"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.51c-1.16.315-2.062 1.216-2.11 2.108C0 8.033 0 12 0 12s0 3.967.502 5.837c.048.892.95 1.793 2.11 2.108 1.87.51 9.388.51 9.388.51s7.517 0 9.388-.51c1.16-.315 2.062-1.216 2.11-2.108C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span> 유튜브 구독자 규모 비교
+              </h3>
+              <div style="position: relative; height: calc(100% - 40px);">
+                <canvas id="chart-yt-subs"></canvas>
+              </div>
+            </div>
+            
+            <div class="card" style="height: 380px;">
+              <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                <span style="width: 16px; height: 16px; color: #e1306c; display: inline-block;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%; display: block;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></span> 인스타그램 팔로워 규모 비교
+              </h3>
+              <div style="position: relative; height: calc(100% - 40px);">
+                <canvas id="chart-ig-folls"></canvas>
+              </div>
+            </div>
+            
+          </div>
+          
+          <div class="card" style="height: 400px; margin-top: 8px;">
+            <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+              <i data-lucide="activity" style="color: var(--color-primary)"></i> 최근 7일 업로드 활동량 비교 (플랫폼별 영상 & 게시물 수)
+            </h3>
+            <div style="position: relative; height: calc(100% - 40px);">
+              <canvas id="chart-activities"></canvas>
+            </div>
+          </div>
+        </div>
+        
+        <!-- View 3: API Settings -->
+        <div class="dashboard-view" id="view-settings">
+          <div class="card" style="max-width: 600px;">
+            <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+              <i data-lucide="key" style="color: var(--color-primary)"></i> YouTube Data API v3 설정
+            </h3>
+            
+            <div class="config-panel">
+              <div style="background-color: rgba(59, 130, 246, 0.05); border: 1px solid rgba(59, 130, 246, 0.2); padding: 16px; border-radius: 8px; font-size: 0.85rem; line-height: 1.6; color: var(--text-secondary);">
+                <p style="font-weight: 600; color: var(--text-primary); margin-bottom: 8px; display: flex; align-items: center; gap: 6px;">
+                  <i data-lucide="info" style="width: 16px; height: 16px; color: var(--color-primary)"></i> 설정 가이드
+                </p>
+                1. 대시보드에 **기본 API 키가 내장**되어 있어 별도의 키 입력 없이도 바로 실시간 데이터를 보여줍니다.<br>
+                2. 본인만의 전용 API 키를 사용하고 싶으시다면 아래 입력 필드에 입력한 후 저장해 주세요.<br>
+                3. 입력하신 키는 브라우저의 로컬 스토리지에 저장되며, 내장 키보다 우선하여 사용됩니다.<br>
+                4. "키 삭제" 버튼을 누르면 개별 키가 삭제되고 다시 기본 내장 키로 원복됩니다.
+              </div>
+              
+              <form id="settings-form">
+                <div class="form-group" style="margin-top: 8px;">
+                  <label for="youtube-api-key-input">YouTube Data API 키</label>
+                  <input type="password" id="youtube-api-key-input" class="form-input" placeholder="AIzaSy..." autocomplete="off">
+                </div>
+                
+                <div style="margin-top: 16px; display: flex; gap: 12px;">
+                  <button type="submit" class="btn-submit" style="flex-grow: 1;">설정 저장</button>
+                  <button type="button" class="btn-refresh" id="btn-clear-key" style="padding: 10px 16px; border-radius: 8px;">키 삭제</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </main>
+  </div>
+
+  <!-- JavaScript Scripts -->
+  <script src="js/config.js?v=1.0.1"></script>
+  <script src="js/utils.js?v=1.0.1"></script>
+  <script src="js/youtube-api.js?v=1.0.1"></script>
+  <script src="js/data-manager.js?v=1.0.1"></script>
+  <script src="js/ui-renderer.js?v=1.0.1"></script>
+  <script src="js/app.js?v=1.0.1"></script>
+</body>
+</html>

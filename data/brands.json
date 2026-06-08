@@ -1,0 +1,326 @@
+[
+  {
+    "id": "dewalt",
+    "name": "DEWALT",
+    "logo": "assets/brand-logos/dewalt.svg",
+    "color": "#febd17",
+    "colorRgb": "254, 189, 23",
+    "youtube": {
+      "handle": "DEWALTKOREA",
+      "url": "https://www.youtube.com/@DEWALTKOREA",
+      "subscriberChange": 120,
+      "mockData": {
+        "subscriberCount": 17900,
+        "videoCount": 421,
+        "recentVideos": [
+          {
+            "id": "dw_yt_1",
+            "title": "공구박스 끝판왕 등장! 디월트 터프시스템 2.0 콤보세트 리뷰",
+            "description": "더 견고해지고 스마트해진 디월트 터프시스템 2.0을 자세히 알아봅니다. 현장에서의 수납 걱정을 한방에 해결해보세요!",
+            "thumbnail": "https://images.unsplash.com/photo-1534224039826-c7a0dea0e66a?w=320&q=80",
+            "publishedAt": "2026-06-02T09:00:00Z",
+            "views": 12500,
+            "duration": "PT8M42S",
+            "isShorts": false
+          },
+          {
+            "id": "dw_yt_2",
+            "title": "요즘 대세 디월트 20V 임팩 스펙 비교 (DCF850 vs DCF887)",
+            "description": "디월트 베스트셀러 컴팩트 임팩 DCF850과 스테디셀러 DCF887의 정밀 성능 테스트 비교 영상입니다.",
+            "thumbnail": "https://images.unsplash.com/photo-1504148455328-c376907d081c?w=320&q=80",
+            "publishedAt": "2026-05-31T18:00:00Z",
+            "views": 24000,
+            "duration": "PT11M15S",
+            "isShorts": false
+          },
+          {
+            "id": "dw_yt_3",
+            "title": "이 미니 톱 진짜 물건이네 🪚 디월트 20V 한손 컷쏘 DCS369",
+            "description": "한 손으로 슥슥 잘리는 괴물 같은 절단 성능의 DCS369 리뷰!",
+            "thumbnail": "https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=320&q=80",
+            "publishedAt": "2026-05-29T12:00:00Z",
+            "views": 48200,
+            "duration": "PT0M58S",
+            "isShorts": true
+          }
+        ]
+      }
+    },
+    "instagram": {
+      "handle": "dewalt_kr",
+      "url": "https://www.instagram.com/dewalt_kr/"
+    }
+  },
+  {
+    "id": "stanley",
+    "name": "STANLEY",
+    "logo": "assets/brand-logos/stanley.svg",
+    "color": "#ffd100",
+    "colorRgb": "255, 209, 0",
+    "youtube": {
+      "handle": "STANLEYKOREA",
+      "url": "https://www.youtube.com/@STANLEYKOREA",
+      "subscriberChange": 30,
+      "mockData": {
+        "subscriberCount": 4280,
+        "videoCount": 195,
+        "recentVideos": [
+          {
+            "id": "st_yt_1",
+            "title": "180년 헤리티지, 스탠리 FatMax 고강도 수공구 라인업 총집합",
+            "description": "줄자부터 망치, 커터칼까지 전문가용 수공구 FatMax 시리즈의 비밀을 밝힙니다.",
+            "thumbnail": "https://images.unsplash.com/photo-1572981779307-38b8cabb2407?w=320&q=80",
+            "publishedAt": "2026-06-01T10:00:00Z",
+            "views": 3800,
+            "duration": "PT6M20S",
+            "isShorts": false
+          },
+          {
+            "id": "st_yt_2",
+            "title": "가성비의 왕! 스탠리 20V V20 브러시리스 해머드릴 세트 성능 검증",
+            "description": "부담 없는 가격에 최고의 힘을 발휘하는 V20 브러시리스 해머드릴로 콘크리트 벽을 타공해 보았습니다.",
+            "thumbnail": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=320&q=80",
+            "publishedAt": "2026-05-28T17:00:00Z",
+            "views": 7500,
+            "duration": "PT9M45S",
+            "isShorts": false
+          }
+        ]
+      }
+    },
+    "instagram": {
+      "handle": "stanleytools_kr",
+      "url": "https://www.instagram.com/stanleytools_kr/"
+    }
+  },
+  {
+    "id": "milwaukee",
+    "name": "Milwaukee",
+    "logo": "assets/brand-logos/milwaukee.svg",
+    "color": "#db0032",
+    "colorRgb": "219, 0, 50",
+    "youtube": {
+      "handle": "MilwaukeeToolKorea",
+      "url": "https://www.youtube.com/@MilwaukeeToolKorea",
+      "subscriberChange": 220,
+      "mockData": {
+        "subscriberCount": 30900,
+        "videoCount": 912,
+        "recentVideos": [
+          {
+            "id": "mw_yt_1",
+            "title": "현장을 제압하는 붉은 물결! 밀워키 M18 FUEL 무선 임팩트 드라이버 Gen4 리뷰",
+            "description": "최대 토크 226Nm! 현존 최강의 스펙과 더욱 날렵해진 Gen4 4세대 임팩트를 만나보세요.",
+            "thumbnail": "https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=320&q=80",
+            "publishedAt": "2026-06-02T18:00:00Z",
+            "views": 32000,
+            "duration": "PT12M40S",
+            "isShorts": false
+          },
+          {
+            "id": "mw_yt_2",
+            "title": "드디어 국내 정식 출시! 밀워키 M12 FUEL 충전 체인톱 성능 미쳤습니다",
+            "description": "경량화와 파워를 동시에 잡은 M12 FCHS 체인톱 벌목 및 목재 절단 실연 영상입니다.",
+            "thumbnail": "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=320&q=80",
+            "publishedAt": "2026-05-30T10:00:00Z",
+            "views": 41500,
+            "duration": "PT8M15S",
+            "isShorts": false
+          },
+          {
+            "id": "mw_yt_3",
+            "title": "좁은 틈새 볼트 푸는 미친 방법 🛠️ M12 FUEL 롱넥 라쳇드릴",
+            "description": "정비업계 혁명템 M12 FHIR38 롱넥 무선 라쳇 리뷰!",
+            "thumbnail": "https://images.unsplash.com/photo-1513694203232-719a280e022f?w=320&q=80",
+            "publishedAt": "2026-05-29T08:00:00Z",
+            "views": 18200,
+            "duration": "PT0M52S",
+            "isShorts": true
+          }
+        ]
+      }
+    },
+    "instagram": {
+      "handle": "milwaukeetoolkorea",
+      "url": "https://www.instagram.com/milwaukeetoolkorea/"
+    }
+  },
+  {
+    "id": "bosch",
+    "name": "Bosch",
+    "logo": "assets/brand-logos/bosch.svg",
+    "color": "#005691",
+    "colorRgb": "0, 86, 145",
+    "youtube": {
+      "handle": "BoschProfessionalKR",
+      "url": "https://www.youtube.com/@BoschProfessionalKR/featured",
+      "subscriberChange": 40,
+      "mockData": {
+        "subscriberCount": 5330,
+        "videoCount": 512,
+        "recentVideos": [
+          {
+            "id": "bs_yt_1",
+            "title": "유선 단종 예고?! 보쉬 바이터보(BITURBO) 18V 충전 원형톱 GKS 18V-68 C 성능 테스트",
+            "description": "기존 유선 원형톱 1800W의 성능을 18V 배터리 하나로 내는 보쉬 최고 기술력의 바이터보 시리즈입니다.",
+            "thumbnail": "https://images.unsplash.com/photo-1601584115197-04ecc0da31d7?w=320&q=80",
+            "publishedAt": "2026-06-02T16:00:00Z",
+            "views": 18900,
+            "duration": "PT10M12S",
+            "isShorts": false
+          },
+          {
+            "id": "bs_yt_2",
+            "title": "보쉬에서 출시한 가성비 18V 브러시리스 해머드릴 GSB 18V-45 써봤습니다",
+            "description": "컴팩트한 크기에 헤드 길이 174mm! 입문용 전문가 공구로 제격인 GSB 18V-45 실사용기.",
+            "thumbnail": "https://images.unsplash.com/photo-1540304453527-62f979142a17?w=320&q=80",
+            "publishedAt": "2026-05-29T11:00:00Z",
+            "views": 15000,
+            "duration": "PT7M35S",
+            "isShorts": false
+          }
+        ]
+      }
+    },
+    "instagram": {
+      "handle": "boschprofessionalkorea",
+      "url": "https://www.instagram.com/boschprofessionalkorea/"
+    }
+  },
+  {
+    "id": "makita",
+    "name": "Makita",
+    "logo": "assets/brand-logos/makita.svg",
+    "color": "#00a4c9",
+    "colorRgb": "0, 164, 201",
+    "youtube": {
+      "handle": "makita_powertools",
+      "url": "https://www.youtube.com/@makita_powertools",
+      "subscriberChange": 30,
+      "mockData": {
+        "subscriberCount": 4610,
+        "videoCount": 2100,
+        "recentVideos": [
+          {
+            "id": "mk_yt_1",
+            "title": "Makita 40V max XGT Brushless 1/2\" High Torque Impact Wrench WT01",
+            "description": "Check out the heavy duty fastening performance of the new 40V max XGT high torque impact wrench, delivering 1,510 ft.lbs. of nut-busting torque.",
+            "thumbnail": "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=320&q=80",
+            "publishedAt": "2026-06-02T14:00:00Z",
+            "views": 45000,
+            "duration": "PT8M50S",
+            "isShorts": false
+          },
+          {
+            "id": "mk_yt_2",
+            "title": "Worksite Cleanup Made Easy: Makita 18V LXT Cordless Blower DUB184",
+            "description": "Overview of the powerful and quiet 18V brushless blower. Ideal for job site cleanups and landscaping.",
+            "thumbnail": "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=320&q=80",
+            "publishedAt": "2026-05-30T16:00:00Z",
+            "views": 29000,
+            "duration": "PT5M15S",
+            "isShorts": false
+          }
+        ]
+      }
+    },
+    "instagram": {
+      "handle": "makita_powertools_korea",
+      "url": "https://www.instagram.com/makita_powertools_korea/"
+    }
+  },
+  {
+    "id": "keyang",
+    "name": "Keyang",
+    "logo": "assets/brand-logos/keyang.svg",
+    "color": "#e74c3c",
+    "colorRgb": "231, 76, 60",
+    "youtube": {
+      "handle": "keyang1977",
+      "url": "https://www.youtube.com/@keyang1977/featured",
+      "subscriberChange": 30,
+      "mockData": {
+        "subscriberCount": 4190,
+        "videoCount": 242,
+        "recentVideos": [
+          {
+            "id": "ky_yt_1",
+            "title": "국산 임팩의 자존심! 계양 18V 브러시리스 임팩트 드라이버 ID18BL 성능 검증",
+            "description": "수입 공구들과 맞장 뜰 계양전기의 야심작 ID18BL 임팩의 실제 파워와 사용 편의성을 심층 분석합니다.",
+            "thumbnail": "https://images.unsplash.com/photo-1590069261209-f8e9b8642343?w=320&q=80",
+            "publishedAt": "2026-06-01T15:00:00Z",
+            "views": 9800,
+            "duration": "PT8M24S",
+            "isShorts": false
+          },
+          {
+            "id": "ky_yt_2",
+            "title": "현장 전기 기사님 필수템! 계양 충전 압착기 성능 시연",
+            "description": "빠르고 안전하게 전선을 압착하는 계양전기의 유압식 압착기 실사용 가이드 영상입니다.",
+            "thumbnail": "https://images.unsplash.com/photo-1579758629938-03607ccdbaba?w=320&q=80",
+            "publishedAt": "2026-05-29T13:00:00Z",
+            "views": 4500,
+            "duration": "PT6M10S",
+            "isShorts": false
+          }
+        ]
+      }
+    },
+    "instagram": {
+      "handle": "keyang1977_official",
+      "url": "https://www.instagram.com/keyang1977_official/"
+    }
+  },
+  {
+    "id": "festool",
+    "name": "Festool",
+    "logo": "assets/brand-logos/festool.svg",
+    "color": "#339966",
+    "colorRgb": "51, 153, 102",
+    "youtube": {
+      "handle": "festoolkorea",
+      "url": "https://www.youtube.com/results?search_query=festool+korea",
+      "subscriberChange": 20,
+      "mockData": {
+        "subscriberCount": 3490,
+        "videoCount": 1540,
+        "recentVideos": [
+          {
+            "id": "ft_yt_1",
+            "title": "Festool TSC 55 K Cordless Track Saw — Dust-Free Precision Cut",
+            "description": "Discover the outstanding cutting power and integrated KickbackStop technology of the new TSC 55 K track saw.",
+            "thumbnail": "https://images.unsplash.com/photo-1497366216548-37526070297c?w=320&q=80",
+            "publishedAt": "2026-06-02T15:00:00Z",
+            "views": 58000,
+            "duration": "PT11M20S",
+            "isShorts": false
+          },
+          {
+            "id": "ft_yt_2",
+            "title": "Domino Joining System DF 500 — Furniture Construction Tutorial",
+            "description": "Learn how to use the DOMINO joining system to create perfect wood joints for cabinets and tables quickly and easily.",
+            "thumbnail": "https://images.unsplash.com/photo-1533090161767-e6ffed986c88?w=320&q=80",
+            "publishedAt": "2026-05-31T09:00:00Z",
+            "views": 72000,
+            "duration": "PT14M45S",
+            "isShorts": false
+          },
+          {
+            "id": "ft_yt_3",
+            "title": "Sanding drywall with 0% dust?! Festool PLANEX LHS 2 225",
+            "description": "Quick demo of the new PLANEX drywall sander with LED light ring.",
+            "thumbnail": "https://images.unsplash.com/photo-1556740758-90de374c12ad?w=320&q=80",
+            "publishedAt": "2026-05-28T14:30:00Z",
+            "views": 49000,
+            "duration": "PT0M45S",
+            "isShorts": true
+          }
+        ]
+      }
+    },
+    "instagram": {
+      "handle": "festool_korea",
+      "url": "https://www.instagram.com/festool_korea/"
+    }
+  }
+]

@@ -1,0 +1,43 @@
+:root {
+  /* 테마 컬러 (다크 모드 기본) */
+  --bg-primary: #0f111a;
+  --bg-secondary: #161824;
+  --bg-card: rgba(22, 24, 36, 0.7);
+  --bg-card-hover: rgba(30, 34, 51, 0.85);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-color-hover: rgba(255, 255, 255, 0.15);
+  
+  /* 텍스트 컬러 */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  /* 브랜드/서비스 컬러 */
+  --color-youtube: #ff0000;
+  --color-instagram-start: #833ab4;
+  --color-instagram-middle: #fd1d1d;
+  --color-instagram-end: #fcaf45;
+  --color-primary: #3b82f6; /* 일렉트릭 블루 */
+  --color-primary-hover: #2563eb;
+  --color-success: #10b981; /* 초록 (상승/성공) */
+  --color-danger: #ef4444; /* 빨강 (하락/위험) */
+  
+  /* 개별 공구 브랜드 악센트 컬러 */
+  --color-dewalt: #febd17;
+  --color-stanley: #ffd100;
+  --color-milwaukee: #db0032;
+  --color-bosch: #005691;
+  --color-keyang: #e74c3c;
+  --color-festool: #339966;
+  --color-makita: #00a4c9;
+  
+  /* 글래스모피즘 효과 */
+  --glass-blur: blur(16px);
+  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  
+  /* 레이아웃 변수 */
+  --sidebar-width: 240px;
+  --sidebar-collapsed-width: 70px;
+  --header-height: 70px;
+  --transition-speed: 0.3s;
+}
