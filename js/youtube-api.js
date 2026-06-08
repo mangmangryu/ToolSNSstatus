@@ -20,10 +20,13 @@ const youtubeApi = {
   // 캐시 저장
   setCache: (brandId, data) => {
     try {
+      const now = Date.now();
       localStorage.setItem(`yt_cache_${brandId}`, JSON.stringify({
-        timestamp: Date.now(),
+        timestamp: now,
         data: data
       }));
+      // 가장 최근 실시간 API 성공 시간 기록 (1시간 제한 체크용)
+      localStorage.setItem('yt_last_live_refresh', now.toString());
     } catch (e) {
       console.error('Error saving cache', e);
     }

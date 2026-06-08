@@ -91,7 +91,24 @@ document.addEventListener('DOMContentLoaded', async () => {
   };
 
   if (refreshBtn) {
-    refreshBtn.addEventListener('click', () => handleRefresh(true));
+    refreshBtn.addEventListener('click', async () => {
+      const lastRefresh = localStorage.getItem('yt_last_live_refresh');
+      const now = Date.now();
+      const oneHour = 60 * 60 * 1000; // 1시간 = 3,600,000ms
+      
+      // 마지막 실시간 API 호출 성공 시점으로부터 1시간 이내일 경우 차단
+      if (lastRefresh && (now - parseInt(lastRefresh)) < oneHour) {
+        const remainingMs = oneHour - (now - parseInt(lastRefresh));
+        const remainingMinutes = Math.ceil(remainingMs / (60 * 1000));
+        uiRenderer.showToast(`실시간 갱신은 1시간에 1회만 가능합니다. (${remainingMinutes}분 후 가능 / 현재 캐시 표시)`);
+        
+        // API 호출 없이 캐시 데이터를 보여주는 일반 새로고침 수행
+        await handleRefresh(false);
+      } else {
+        // 1시간이 경과했으면 실시간 강제 새로고침 수행
+        await handleRefresh(true);
+      }
+    });
   }
 
   // 5. 이벤트 바인딩 - 상세 정보 탭 전환 (전체보기 / 브랜드별 보기)
