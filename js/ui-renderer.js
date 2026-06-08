@@ -81,7 +81,6 @@ const uiRenderer = {
       }
 
       const totalYt7Days = brand.youtube.videoCount7Days + brand.youtube.shortsCount7Days;
-      const totalIg7Days = brand.instagram.postCount7Days + brand.instagram.reelCount7Days;
 
       card.innerHTML = `
         <div class="card-header">
@@ -93,38 +92,34 @@ const uiRenderer = {
             <a href="${brand.youtube.url}" target="_blank" class="sns-badge youtube active" title="YouTube 채널 바로가기" style="width: 20px; height: 20px; display: block;">
               ${SVG_ICONS.youtube}
             </a>
-            <a href="${brand.instagram.url}" target="_blank" class="sns-badge instagram active" title="Instagram 바로가기" style="width: 20px; height: 20px; display: block;">
-              ${SVG_ICONS.instagram}
-            </a>
           </div>
         </div>
         
         <div class="card-metrics-grid">
           <div class="metric-box">
             <div class="metric-label" style="display: flex; align-items: center; gap: 6px;">
-              <span style="width: 14px; height: 14px; color: var(--color-youtube); display: block;">${SVG_ICONS.youtube}</span> 구독자
+              <span style="width: 14px; height: 14px; color: var(--color-youtube); display: block;">${SVG_ICONS.youtube}</span> 구독자수
             </div>
             <div class="metric-val" style="display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap;">
               <span>${utils.formatNumber(brand.youtube.subscriberCount)}</span>
               <span style="font-size: 0.72rem; font-weight: 600; color: var(--color-success);">+${brand.youtube.subscriberChange.toLocaleString()}명</span>
             </div>
-            <div class="metric-sub">최근 7일: ${totalYt7Days}개</div>
+            <div class="metric-sub">총 동영상: ${brand.youtube.videoCount.toLocaleString()}개</div>
           </div>
           
           <div class="metric-box">
             <div class="metric-label" style="display: flex; align-items: center; gap: 6px;">
-              <span style="width: 14px; height: 14px; color: #e1306c; display: block;">${SVG_ICONS.instagram}</span> 팔로워
+              <span style="width: 14px; height: 14px; color: var(--color-youtube); display: block;">${SVG_ICONS.youtube}</span> 최근 업로드 (7일)
             </div>
             <div class="metric-val" style="display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap;">
-              <span>${utils.formatNumber(brand.instagram.followers)}</span>
-              <span style="font-size: 0.72rem; font-weight: 600; color: var(--color-success);">+${brand.instagram.followersChange.toLocaleString()}명</span>
+              <span>${totalYt7Days}개</span>
             </div>
-            <div class="metric-sub">최근 7일: ${totalIg7Days}개</div>
+            <div class="metric-sub">영상: ${brand.youtube.videoCount7Days} / 쇼츠: ${brand.youtube.shortsCount7Days}</div>
           </div>
         </div>
         
         <div class="card-footer">
-          <span>최근 7일 새 콘텐츠: <strong>${totalYt7Days + totalIg7Days}개</strong></span>
+          <span>최근 7일 새 동영상: <strong>${totalYt7Days}개</strong></span>
           <span class="card-action-txt">상세 보기 <i data-lucide="chevron-right" style="width: 14px; height: 14px"></i></span>
         </div>
       `;
@@ -373,21 +368,17 @@ const uiRenderer = {
     const ytSubscribers = data.map(b => b.youtube.subscriberCount);
     uiRenderer.drawBarChart('chart-yt-subs', brandNames, ytSubscribers, brandColors, 'YouTube 구독자 수');
 
-    // 차트 2: 팔로워 비교 (Instagram)
-    const igFollowers = data.map(b => b.instagram.followers);
-    uiRenderer.drawBarChart('chart-ig-folls', brandNames, igFollowers, brandColors, 'Instagram 팔로워 수');
+    // 차트 2: 채널 총 동영상 수 비교 (YouTube)
+    const ytTotalVideos = data.map(b => b.youtube.videoCount);
+    uiRenderer.drawBarChart('chart-yt-vids', brandNames, ytTotalVideos, brandColors, 'YouTube 총 동영상 수');
 
-    // 차트 3: 최근 7일 업로드 활동량 비교 (누적)
+    // 차트 3: 최근 7일 업로드 활동량 비교 (유튜브 영상 & 쇼츠)
     const ytVideos = data.map(b => b.youtube.videoCount7Days);
     const ytShorts = data.map(b => b.youtube.shortsCount7Days);
-    const igReels = data.map(b => b.instagram.reelCount7Days);
-    const igPosts = data.map(b => b.instagram.postCount7Days);
 
     uiRenderer.drawActivityChart('chart-activities', brandNames, {
       'YouTube 비디오': ytVideos,
-      'YouTube 쇼츠': ytShorts,
-      'Instagram 릴스': igReels,
-      'Instagram 포스트': igPosts
+      'YouTube 쇼츠': ytShorts
     });
   },
 

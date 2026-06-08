@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tool Brand SNS Status Tracker</title>
+  <title>Tool Brand YouTube Status Tracker</title>
   
   <!-- SEO Meta Tags -->
-  <meta name="description" content="공구 브랜드 7대사의 YouTube 및 Instagram SNS 현황을 모니터링하고 시각화하는 모던 웹 대시보드">
+  <meta name="description" content="공구 브랜드 7대사의 실시간 YouTube 현황을 모니터링하고 시각화하는 모던 웹 대시보드">
   
   <!-- Google Fonts - Inter -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -66,7 +66,7 @@
           <button class="sidebar-toggle-btn" id="sidebar-toggle" title="사이드바 토글">
             <i data-lucide="menu"></i>
           </button>
-          <h1>Tool Brand SNS Status Tracker</h1>
+          <h1>Tool Brand YouTube Status Tracker</h1>
           <span id="api-mode-badge" class="badge">LOCKED</span>
         </div>
         
@@ -138,24 +138,24 @@
             </div>
             
             <div class="card" style="height: 380px;">
-              <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
-                <span style="width: 16px; height: 16px; color: #e1306c; display: inline-block;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width: 100%; height: 100%; display: block;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></span> 인스타그램 팔로워 규모 비교
-              </h3>
-              <div style="position: relative; height: calc(100% - 40px);">
-                <canvas id="chart-ig-folls"></canvas>
-              </div>
-            </div>
-            
-          </div>
-          
-          <div class="card" style="height: 400px; margin-top: 8px;">
-            <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
-              <i data-lucide="activity" style="color: var(--color-primary)"></i> 최근 7일 업로드 활동량 비교 (플랫폼별 영상 & 게시물 수)
-            </h3>
-            <div style="position: relative; height: calc(100% - 40px);">
-              <canvas id="chart-activities"></canvas>
-            </div>
-          </div>
+               <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+                 <span style="width: 16px; height: 16px; color: var(--color-youtube); display: inline-block;"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" style="width: 100%; height: 100%; display: block;"><path d="M23.498 6.163a3.003 3.003 0 0 0-2.11-2.108C19.517 3.545 12 3.545 12 3.545s-7.517 0-9.388.51c-1.16.315-2.062 1.216-2.11 2.108C0 8.033 0 12 0 12s0 3.967.502 5.837c.048.892.95 1.793 2.11 2.108 1.87.51 9.388.51 9.388.51s7.517 0 9.388-.51c1.16-.315 2.062-1.216 2.11-2.108C24 15.967 24 12 24 12s0-3.967-.502-5.837zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></span> 유튜브 채널 총 동영상 수 비교
+               </h3>
+               <div style="position: relative; height: calc(100% - 40px);">
+                 <canvas id="chart-yt-vids"></canvas>
+               </div>
+             </div>
+             
+           </div>
+           
+           <div class="card" style="height: 400px; margin-top: 8px;">
+             <h3 style="font-size: 1rem; font-weight: 600; margin-bottom: 20px; display: flex; align-items: center; gap: 8px;">
+               <i data-lucide="activity" style="color: var(--color-primary)"></i> 최근 7일 업로드 활동량 비교 (유튜브 영상 & 쇼츠 수)
+             </h3>
+             <div style="position: relative; height: calc(100% - 40px);">
+               <canvas id="chart-activities"></canvas>
+             </div>
+           </div>
         </div>
         
         <!-- View 3: API Settings -->
