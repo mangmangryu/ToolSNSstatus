@@ -1,4 +1,17 @@
 {
   "note": "매일 09:05(KST) GitHub Actions가 자동으로 기록합니다. 직접 수정하지 마세요.",
-  "snapshots": []
+  "snapshots": [
+    {
+      "date": "2026-11-17",
+      "counts": {
+        "dewalt": 17900,
+        "stanley": 6310,
+        "milwaukee": 31400,
+        "bosch": 5420,
+        "makita": 4800,
+        "keyang": 4140,
+        "festool": 3610
+      }
+    }
+  ]
 }
