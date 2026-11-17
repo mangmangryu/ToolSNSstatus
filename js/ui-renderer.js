@@ -102,7 +102,7 @@ const uiRenderer = {
             </div>
             <div class="metric-val" style="display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap;">
               <span>${utils.formatNumber(brand.youtube.subscriberCount)}</span>
-              <span style="font-size: 0.72rem; font-weight: 600; color: var(--color-success);">+${brand.youtube.subscriberChange.toLocaleString()}명</span>
+              ${uiRenderer.changeBadge(brand.youtube.subscriberChange)}
             </div>
             <div class="metric-sub">총 동영상: ${brand.youtube.videoCount.toLocaleString()}개</div>
           </div>
@@ -354,6 +354,16 @@ const uiRenderer = {
     }
   },
 
+  // 구독자 증감 배지: 일별 기록이 N일 이상 쌓였을 때만 표시 (실제 기록 비교)
+  changeBadge: (chg) => {
+    if (!chg) return '';
+    const { change, days, since } = chg;
+    const color = change > 0 ? 'var(--color-success)' : change < 0 ? 'var(--color-danger)' : 'var(--text-muted)';
+    const sign = change > 0 ? '+' : change < 0 ? '−' : '±';
+    const tip = `${since} 기록 대비 (${days}일). YouTube API는 구독자 수를 반올림해 제공하므로 10~100명 단위로 바뀝니다.`;
+    return `<span title="${tip}" style="font-size: 0.72rem; font-weight: 600; color: ${color};">${sign}${Math.abs(change).toLocaleString()}명 <span style="font-weight: 400; opacity: 0.75;">(${days}일)</span></span>`;
+  },
+
   // 6. 차트 초기화 및 렌더링
   renderCharts: (data) => {
     // Chart.js 테마 및 디폴트 설정
@@ -468,22 +478,6 @@ const uiRenderer = {
             data: dataGroups['YouTube 쇼츠'],
             backgroundColor: '#ef4444cc', // youtube red
             borderColor: '#ef4444',
-            borderWidth: 1,
-            borderRadius: 4
-          },
-          {
-            label: 'Instagram 포스트',
-            data: dataGroups['Instagram 포스트'],
-            backgroundColor: '#10b981cc', // success emerald
-            borderColor: '#10b981',
-            borderWidth: 1,
-            borderRadius: 4
-          },
-          {
-            label: 'Instagram 릴스',
-            data: dataGroups['Instagram 릴스'],
-            backgroundColor: '#a855f7cc', // purple
-            borderColor: '#a855f7',
             borderWidth: 1,
             borderRadius: 4
           }

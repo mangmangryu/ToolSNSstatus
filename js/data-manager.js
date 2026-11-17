@@ -32,13 +32,46 @@ const dataManager = {
     }
   },
 
+  // 일별 구독자 기록 로드 (없거나 실패하면 빈 배열 → 증감 미표시)
+  loadHistory: async () => {
+    for (const url of CONFIG.HISTORY_DATA_URLS || []) {
+      try {
+        // 기록 파일이 늦게 와도 대시보드가 멈추지 않도록 5초 제한
+        const res = await fetch(url, { cache: 'no-store', signal: AbortSignal.timeout(5000) });
+        if (!res.ok) continue;
+        const json = await res.json();
+        if (Array.isArray(json.snapshots)) return json.snapshots;
+      } catch (e) {
+        console.warn('[History] load failed:', url, e.message);
+      }
+    }
+    return [];
+  },
+
+  // 실제 구독자 증감: 오늘(KST) 기준 N일 이전의 가장 최근 기록과 비교
+  getSubscriberChange: (brandId, currentCount, snapshots) => {
+    const DAY = 24 * 60 * 60 * 1000;
+    const kstDate = (ms) => new Date(ms + 9 * 60 * 60 * 1000).toISOString().slice(0, 10);
+    const today = kstDate(Date.now());
+    const cutoff = kstDate(Date.now() - CONFIG.CHANGE_WINDOW_DAYS * DAY);
+    let base = null;
+    for (const snap of snapshots) {
+      if (snap.date <= cutoff && snap.counts && typeof snap.counts[brandId] === 'number') {
+        if (!base || snap.date > base.date) base = snap;
+      }
+    }
+    if (!base) return null; // 기록이 아직 N일치 쌓이지 않음
+    const days = Math.round((Date.parse(today) - Date.parse(base.date)) / DAY);
+    return { change: currentCount - base.counts[brandId], days: days, since: base.date };
+  },
+
   // 2. 통합 데이터 구축 (YouTube 실시간/Mock + Instagram 수동)
   loadAllData: async (forceRefresh = false) => {
     dataManager.state.loading = true;
     dataManager.state.error = null;
     
     try {
-      await dataManager.loadBaseData();
+      const [, history] = await Promise.all([dataManager.loadBaseData(), dataManager.loadHistory()]);
       
       const apiKey = CONFIG.getYoutubeApiKey();
       dataManager.state.isMockMode = !apiKey;
@@ -48,6 +81,7 @@ const dataManager = {
       
       for (const brand of dataManager.state.brands) {
         let ytData = null;
+        let isLive = false; // 실제 YouTube 데이터(실시간 또는 1시간 캐시)일 때만 증감 계산
         
         // YouTube 데이터 로드 (실시간 API 또는 캐시 또는 Mock)
         if (apiKey) {
@@ -57,6 +91,7 @@ const dataManager = {
               localStorage.removeItem(`yt_cache_${brand.id}`);
             }
             ytData = await youtubeApi.getBrandYoutubeData(brand.id, brand.youtube.handle);
+            isLive = true;
           } catch (e) {
             console.warn(`[YouTube API Fail] Falling back to Mock for ${brand.name}: ${e.message}`);
             ytData = brand.youtube.mockData;
@@ -91,7 +126,7 @@ const dataManager = {
             handle: brand.youtube.handle,
             url: brand.youtube.url || `https://www.youtube.com/@${brand.youtube.handle}`,
             subscriberCount: ytData.subscriberCount,
-            subscriberChange: brand.youtube.subscriberChange || 0,
+            subscriberChange: isLive ? dataManager.getSubscriberChange(brand.id, ytData.subscriberCount, history) : null,
             videoCount: ytData.videoCount,
             recentVideos: ytData.recentVideos,
             videoCount7Days: video7Days,

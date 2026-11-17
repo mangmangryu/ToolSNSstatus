@@ -8,7 +8,6 @@
     "youtube": {
       "handle": "DEWALTKOREA",
       "url": "https://www.youtube.com/@DEWALTKOREA",
-      "subscriberChange": 120,
       "mockData": {
         "subscriberCount": 17900,
         "videoCount": 421,
@@ -60,7 +59,6 @@
     "youtube": {
       "handle": "STANLEYKOREA",
       "url": "https://www.youtube.com/@STANLEYKOREA",
-      "subscriberChange": 30,
       "mockData": {
         "subscriberCount": 4280,
         "videoCount": 195,
@@ -102,7 +100,6 @@
     "youtube": {
       "handle": "MilwaukeeToolKorea",
       "url": "https://www.youtube.com/@MilwaukeeToolKorea",
-      "subscriberChange": 220,
       "mockData": {
         "subscriberCount": 30900,
         "videoCount": 912,
@@ -154,7 +151,6 @@
     "youtube": {
       "handle": "BoschProfessionalKR",
       "url": "https://www.youtube.com/@BoschProfessionalKR/featured",
-      "subscriberChange": 40,
       "mockData": {
         "subscriberCount": 5330,
         "videoCount": 512,
@@ -196,7 +192,6 @@
     "youtube": {
       "handle": "makita_powertools",
       "url": "https://www.youtube.com/@makita_powertools",
-      "subscriberChange": 30,
       "mockData": {
         "subscriberCount": 4610,
         "videoCount": 2100,
@@ -238,7 +233,6 @@
     "youtube": {
       "handle": "keyang1977",
       "url": "https://www.youtube.com/@keyang1977/featured",
-      "subscriberChange": 30,
       "mockData": {
         "subscriberCount": 4190,
         "videoCount": 242,
@@ -280,7 +274,6 @@
     "youtube": {
       "handle": "festoolkorea",
       "url": "https://www.youtube.com/results?search_query=festool+korea",
-      "subscriberChange": 20,
       "mockData": {
         "subscriberCount": 3490,
         "videoCount": 1540,

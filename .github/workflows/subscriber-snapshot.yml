@@ -1,0 +1,43 @@
+# 매일 09:05(KST) 7개 브랜드의 YouTube 구독자 수를 data/subscriber-history.json 에 기록한다.
+# 대시보드는 이 기록으로 "7일 전 대비 실제 증감"을 계산해 보여준다.
+name: Daily subscriber snapshot
+
+on:
+  schedule:
+    - cron: "5 0 * * *"   # UTC 00:05 = KST 09:05
+  workflow_dispatch:       # Actions 탭에서 수동 실행 가능
+  push:                    # 이 기능을 처음 올릴 때 바로 첫 기록을 남김
+    branches: [main]
+    paths:
+      - ".github/workflows/subscriber-snapshot.yml"
+      - "scripts/snapshot.py"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: subscriber-snapshot
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Record today's subscriber counts
+        run: python3 scripts/snapshot.py
+        env:
+          YT_API_KEY: ${{ secrets.YT_API_KEY }}
+
+      - name: Commit history
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898699+github-actions[bot]@users.noreply.github.com"
+          git add data/subscriber-history.json
+          if git diff --cached --quiet; then
+            echo "No change"
+            exit 0
+          fi
+          git commit -m "Subscriber snapshot $(TZ=Asia/Seoul date +%F)"
+          git pull --rebase
+          git push
