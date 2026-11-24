@@ -84,6 +84,18 @@
         "keyang": 4140,
         "festool": 3610
       }
+    },
+    {
+      "date": "2026-11-24",
+      "counts": {
+        "dewalt": 17800,
+        "stanley": 6300,
+        "milwaukee": 31500,
+        "bosch": 5420,
+        "makita": 4820,
+        "keyang": 4140,
+        "festool": 3610
+      }
     }
   ]
 }
